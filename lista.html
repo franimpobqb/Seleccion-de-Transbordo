@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet'>
+    <link rel="stylesheet" href="https://www.buquebus.com/Portal/resources/Bqb/css/portal-core.css?v=1.10.10">
+    <script src="https://www.buquebus.com/Portal/resources/js/lib/jQuery/jquery-3.5.0.min.js?version=1.10.10"></script>
+    <link rel="stylesheet" href="https://www.buquebus.com/resources_portal/Bqb/resources/css/styles_bqb.css?v=1.10.10">
+    <link rel="stylesheet" href="modalresumen.css">
+
+    <style>
+        /* A MODO DE EJEMPLO - SOLO PARA MOSTRAR EL FUNCIONAMIENTO */
+        #grid-ida,
+        #grid-vuelta {
+            cursor: pointer;
+        }
+
+        .transbordo-opciones {
+            list-style: none;
+            padding: 0;
+            column-count: 2;
+            margin-bottom: 2rem;
+        }
+
+        .transbordo-opcion {
+            break-inside: avoid-column;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            text-align: left;
+
+        }
+
+        .transbordo-opcion .info {
+            display: none;
+            margin-bottom: 1rem;
+        }
+
+
+        .transbordo-opcion .expand:after {
+            content: "+";
+            font-size: 1.8rem;
+            color: #0077c4;
+            cursor: pointer;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+
+        }
+
+        .transbordo-opcion.expanded .expand:after {
+            content: "-";
+
+        }
+
+        .transbordo-opcion.expanded .info {
+            display: block;
+            font-size: 1.2rem;
+            color: rgb(98, 98, 98);
+        }
+
+        .transbordo-opcion .form-check {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 0;
+        }
+
+        .transbordo-opcion .form-check-input {
+            accent-color: #0077c4;
+        }
+
+        .transbordo-opcion .form-check-label {
+            margin-left: .75rem;
+        }
+
+        @media (max-width: 576px) {
+
+         
+            .transbordo-opciones {
+            list-style: none;
+            padding: 0;
+            column-count: 1;
+            margin-bottom: 2rem;
+        }
+        }
+    </style>
+</head>
+
+<body>
+    <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+    <section>
+        <img src="desktop-header.jpg" alt="" class="desktop" style="width: 100%;">
+        <img src="desktop-search.jpg" alt="" class="desktop" style="width: 100%;">
+        <img src="desktop-grid-ida.jpg" id="grid-ida" alt="" class="desktop" style="width: 100%;">
+        <img src="desktop-grid-vuelta.jpg" id="grid-vuelta" alt="" class="desktop" style="width: 100%;">
+        <img src="desktop-footer.jpg" alt="" class="desktop" style="width: 100%;">
+        <img src="bqb-mobile.png" alt="" class="mobile" style="width: 100%;">
+    </section>
+
+    <div class="bqb-modal fade modal cont-transbordo show" id="modBoots" tabindex="-1" role="dialog" aria-modal="true"
+        style="display: block;">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="modal-title" id="mailOffersModalLabel">Bus de regreso - MVD a COL</span>
+
+                    <button type="button" class="close" aria-label="Close" data-bs-dismiss="modal" id="func">
+                        <span aria-hidden="true">×</span> </button>
+                </div>
+                <div class="modal-body">
+                    <div class="cont-bqb-tras">
+                        <p>Seleccioná la parada en donde deseás abordar
+                            al bus de Montevideo a Colonia</p>
+
+                        <ul class="transbordo-opciones">
+                            <li class="transbordo-opcion">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                        id="flexRadioDefault1" checked>
+                                    <label class="form-check-label" for="flexRadioDefault1">
+                                        Terminal de Buses
+                                    </label>
+                                    <span class="expand"></span>
+                                </div>
+                                <div class="info">
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit
+                                </div>
+                            </li>
+                            <li class="transbordo-opcion">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                        id="flexRadioDefault2">
+                                    <label class="form-check-label" for="flexRadioDefault2">
+                                        Cibils
+                                    </label>
+                                    <span class="expand"></span>
+                                </div>
+                                <div class="info">
+                                    Lorem ipsum dolor sit amet consectetur
+                                </div>
+                            </li>
+                            <li class="transbordo-opcion">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                        id="flexRadioDefault3">
+                                    <label class="form-check-label" for="flexRadioDefault3">
+                                        Camino Tomkinson
+                                    </label>
+                                    <span class="expand"></span>
+                                </div>
+                                <div class="info">
+                                    Lorem ipsum dolor sit amet consectetur
+                                </div>
+                            </li>
+                            <li class="transbordo-opcion">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                        id="flexRadioDefault4">
+                                    <label class="form-check-label" for="flexRadioDefault4">
+                                        Colonia
+                                    </label>
+                                    <span class="expand"></span>
+                                </div>
+                                <div class="info">
+                                    Lorem ipsum dolor sit amet consectetur
+                                </div>
+                            </li>
+                            <li class="transbordo-opcion">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                        id="flexRadioDefault5">
+                                    <label class="form-check-label" for="flexRadioDefault5">
+                                        Comcar
+                                    </label>
+                                    <span class="expand"></span>
+                                </div>
+                                <div class="info">
+                                    Lorem ipsum dolor sit amet consectetur
+                                </div>
+                            </li>
+                            <li class="transbordo-opcion">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                        id="flexRadioDefault6">
+                                    <label class="form-check-label" for="flexRadioDefault6">
+                                        Ecilda Paullier
+                                    </label>
+                                    <span class="expand"></span>
+                                </div>
+                                <div class="info">
+                                    Lorem ipsum dolor sit amet consectetur
+                                </div>
+                            </li>
+                            <li class="transbordo-opcion">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                        id="flexRadioDefault7">
+                                    <label class="form-check-label" for="flexRadioDefault7">
+                                        Estancia Don Joaquin
+                                    </label>
+                                    <span class="expand"></span>
+                                </div>
+                                <div class="info">
+                                    Lorem ipsum dolor sit amet consectetur
+                                </div>
+                            </li>
+                            <li class="transbordo-opcion">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                        id="flexRadioDefault8">
+                                    <label class="form-check-label" for="flexRadioDefault8">
+                                        Juan Lacaze
+                                    </label>
+                                    <span class="expand"></span>
+                                </div>
+                                <div class="info">
+                                    Lorem ipsum dolor sit amet consectetur
+                                </div>
+                            </li>
+                            <li class="transbordo-opcion">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                        id="flexRadioDefault9">
+                                    <label class="form-check-label" for="flexRadioDefault9">
+                                        Km 26 Rotonda
+                                    </label>
+                                    <span class="expand"></span>
+                                </div>
+                                <div class="info">
+                                    Lorem ipsum dolor sit amet consectetur
+                                </div>
+                            </li>
+                            <li class="transbordo-opcion">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                        id="flexRadioDefault10">
+                                    <label class="form-check-label" for="flexRadioDefault10">
+                                        Libertad
+                                    </label>
+                                    <span class="expand"></span>
+                                </div>
+                                <div class="info">
+                                    Lorem ipsum dolor sit amet consectetur
+                                </div>
+                            </li>
+                            <li class="transbordo-opcion">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                        id="flexRadioDefault11">
+                                    <label class="form-check-label" for="flexRadioDefault11">
+                                        Peaje Santa Lucia
+                                    </label>
+                                    <span class="expand"></span>
+                                </div>
+                                <div class="info">
+                                    Lorem ipsum dolor sit amet consectetur
+                                </div>
+                            </li>
+                            <li class="transbordo-opcion">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                        id="flexRadioDefault12">
+                                    <label class="form-check-label" for="flexRadioDefault12">
+                                        Penino
+                                    </label>
+                                    <span class="expand"></span>
+                                </div>
+                                <div class="info">
+                                    Lorem ipsum dolor sit amet consectetur
+                                </div>
+                            </li>
+                            <li class="transbordo-opcion">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                        id="flexRadioDefault13">
+                                    <label class="form-check-label" for="flexRadioDefault13">
+                                        Peraza
+                                    </label>
+                                    <span class="expand"></span>
+                                </div>
+                                <div class="info">
+                                    Lorem ipsum dolor sit amet consectetur
+                                </div>
+                            </li>
+                            <li class="transbordo-opcion">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                        id="flexRadioDefault14">
+                                    <label class="form-check-label" for="flexRadioDefault14">
+                                        Playa Pascual
+                                    </label>
+                                    <span class="expand"></span>
+                                </div>
+                                <div class="info">
+                                    Lorem ipsum dolor sit amet consectetur
+                                </div>
+                            </li>
+                            <li class="transbordo-opcion">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                        id="flexRadioDefault15">
+                                    <label class="form-check-label" for="flexRadioDefault15">
+                                        Plaza Cuba
+                                    </label>
+                                    <span class="expand"></span>
+                                </div>
+                                <div class="info">
+                                    Lorem ipsum dolor sit amet consectetur
+                                </div>
+                            </li>
+                            <li class="transbordo-opcion">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                        id="flexRadioDefault17">
+                                    <label class="form-check-label" for="flexRadioDefault17">
+                                        Radial de Rosario
+                                    </label>
+                                    <span class="expand"></span>
+                                </div>
+                                <div class="info">
+                                    Lorem ipsum dolor sit amet consectetur
+                                </div>
+                            </li>
+                            <li class="transbordo-opcion">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                        id="flexRadioDefault18">
+                                    <label class="form-check-label" for="flexRadioDefault18">
+                                        Radial de San Jose
+                                    </label>
+                                    <span class="expand"></span>
+                                </div>
+                                <div class="info">
+                                    Lorem ipsum dolor sit amet consectetur
+                                </div>
+                            </li>
+                            <li class="transbordo-opcion">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                        id="flexRadioDefault19">
+                                    <label class="form-check-label" for="flexRadioDefault19">
+                                        Ruta Vieja Punta Valdez
+                                    </label>
+                                    <span class="expand"></span>
+                                </div>
+                                <div class="info">
+                                    Lorem ipsum dolor sit amet consectetur
+                                </div>
+                            </li>
+                            <li class="transbordo-opcion">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                        id="flexRadioDefault20">
+                                    <label class="form-check-label" for="flexRadioDefault20">
+                                        Stgo Vazquez
+                                    </label>
+                                    <span class="expand"></span>
+                                </div>
+                                <div class="info">
+                                    Lorem ipsum dolor sit amet consectetur
+                                </div>
+                            </li>
+                            <li class="transbordo-opcion">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                        id="flexRadioDefault21">
+                                    <label class="form-check-label" for="flexRadioDefault21">
+                                        Km 18
+                                    </label>
+                                    <span class="expand"></span>
+                                </div>
+                                <div class="info">
+                                    Lorem ipsum dolor sit amet consectetur
+                                </div>
+                            </li>
+
+                            <li class="transbordo-opcion">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                        id="flexRadioDefault16">
+                                    <label class="form-check-label" for="flexRadioDefault16">
+                                        Tres Cruces
+                                    </label>
+                                    <span class="expand"></span>
+                                </div>
+                                <div class="info">
+
+                                </div>
+                            </li>
+                        </ul>
+
+                        <button id="search-ticket" class="button-primary">Continuar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-backdrop fade show"></div>
+
+
+
+
+
+
+    <script
+        src="https://www.buquebus.com/Portal/resources/Bqb/js/bootstrap.bundle.min.js;jsessionid=EDC970C259ACD114353AE8BCF5714AA4?version=1.10.10"
+        async defer></script>
+
+
+    <script>
+        /* A MODO DE EJEMPLO - SOLO PARA MOSTRAR EL FUNCIONAMIENTO */
+
+        const cajaResumen = document.getElementById('cluster-resumen')
+        let gridIda = document.getElementById('grid-ida');
+        let gridVuelta = document.getElementById('grid-vuelta');
+
+        let btnsComprar = document.querySelectorAll('.bqb-btn-comprar');
+        let datosVuelta = document.querySelectorAll('.datos-vuelta');
+
+        gridIda.addEventListener('click', function () {
+            if (!cajaResumen.classList.contains('active')) {
+                cajaResumen.classList.add('active');
+                gridVuelta.scrollIntoView();
+            }
+        });
+        gridVuelta.addEventListener('click', function () {
+
+            if (cajaResumen.classList.contains('active')) {
+                console.log(btnsComprar)
+                for (i = 0; i < btnsComprar.length; ++i) {
+                    if (cajaResumen.classList.contains('active')) {
+                        btnsComprar[i].innerHTML = "Comprar";
+                        btnsComprar[i].disabled = false;
+                        document.querySelector('.tramo-vuelta').innerHTML =
+                            "Montevideo - Buenos Aires / 14-12-2022 / 17:30hs";
+                    }
+                }
+            }
+        });
+    </script>
+
+    <script>
+        let opcionesTransbordo = document.querySelectorAll('.transbordo-opcion');
+        let opcionesTransbordoInfo = document.querySelectorAll('.transbordo-opcion .info');
+        let opcionesTransbordoAbrir = document.querySelectorAll('.transbordo-opcion .expand');
+
+
+        for (var i = 0; i < opcionesTransbordoAbrir.length; i++) {
+            opcionesTransbordoAbrir[i].addEventListener('click', function (event) {
+
+                if (this.closest(".transbordo-opcion").classList.contains('expanded')) {
+                    opcionesTransbordo.forEach((opcionTransbordo) => {
+                        opcionTransbordo.classList.remove('expanded')
+                    });
+                    this.closest(".transbordo-opcion").classList.remove('expanded');
+                } else {
+                    opcionesTransbordo.forEach((opcionTransbordo) => {
+                        opcionTransbordo.classList.remove('expanded')
+                    });
+                    this.closest(".transbordo-opcion").classList.add('expanded');
+                }
+
+            });
+        }
+    </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet'>
+    <link rel="stylesheet" href="https://www.buquebus.com/Portal/resources/Bqb/css/portal-core.css?v=1.10.10">
+    <script src="https://www.buquebus.com/Portal/resources/js/lib/jQuery/jquery-3.5.0.min.js?version=1.10.10"></script>
+    <link rel="stylesheet" href="https://www.buquebus.com/resources_portal/Bqb/resources/css/styles_bqb.css?v=1.10.10">
+    <link rel="stylesheet" href="modalresumen.css">
+
+    <style>
+        .cont-transbordo iframe {
+            position: relative;
+            width: 100%;
+            height: 350px;
+            z-index: 1;
+        }
+
+
+        @media (max-width: 576px) {
+
+
+            .transbordo-opciones {
+                list-style: none;
+                padding: 0;
+                column-count: 1;
+                margin-bottom: 2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+    <section>
+        <img src="desktop-header.jpg" alt="" class="desktop" style="width: 100%;">
+        <img src="desktop-search.jpg" alt="" class="desktop" style="width: 100%;">
+        <img src="desktop-grid-ida.jpg" id="grid-ida" alt="" class="desktop" style="width: 100%;">
+        <img src="desktop-grid-vuelta.jpg" id="grid-vuelta" alt="" class="desktop" style="width: 100%;">
+        <img src="desktop-footer.jpg" alt="" class="desktop" style="width: 100%;">
+        <img src="bqb-mobile.png" alt="" class="mobile" style="width: 100%;">
+    </section>
+
+    <div class="bqb-modal fade modal cont-transbordo show" id="modBoots" tabindex="-1" role="dialog" aria-modal="true"
+        style="display: block;">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="modal-title" id="mailOffersModalLabel">Bus de regreso - MVD a COL</span>
+
+                    <button type="button" class="close" aria-label="Close" data-bs-dismiss="modal" id="func">
+                        <span aria-hidden="true">×</span> </button>
+                </div>
+                <div class="modal-body">
+
+                    <p>Seleccioná la parada en donde deseás abordar
+                        al bus de Montevideo a Colonia</p>
+                    <select class="bqb-select" id="sel-stops">
+                        <option value="">Terminal de Buses</option>
+                        <option value="244925">Cibils por Debajo del Puente</option>
+                        <option value="244926">Camino Tomkinson</option>
+                        <option value="244942">Colonia</option>
+                        <option value="244939">Colonia Valdese</option>
+                        <option value="244927">Comcar</option>
+                        <option value="244938">Ecilda Paullier</option>
+                        <option value="244937">Estancia Don Joaquin</option>
+                        <option value="244941">Juan Lacaze</option>
+                        <option value="244930">Km 26 Rotonda</option>
+                        <option value="244933">Libertad</option>
+                        <option value="244929">Peaje Santa Lucia</option>
+                        <option value="244931">Penino</option>
+                        <option value="244936">Peraza</option>
+                        <option value="244932">Playa Pascual</option>
+                        <option value="244924">Plaza Cuba</option>
+                        <option value="244940">Radial de Rosario</option>
+                        <option value="244935">Radial de San Jose</option>
+                        <option value="244934">Ruta Vieja Punta Valdez</option>
+                        <option value="244928">Stgo Vazquez</option>
+                        <option value="244943">Km 18</option>
+                        <option value="244944">Tres Cruces</option>
+                    </select>
+                    <iframe src="https://www.google.com/maps/d/embed?mid=1X1MWi5i5VLCVlftkBNAqL02-6Xw2VBY&ehbc=2E312F"
+                        width="640" height="480"></iframe>
+
+                    <button id="search-ticket" class="button-primary">Continuar</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-backdrop fade show"></div>
+
+
+
+
+
+
+    <script
+        src="https://www.buquebus.com/Portal/resources/Bqb/js/bootstrap.bundle.min.js;jsessionid=EDC970C259ACD114353AE8BCF5714AA4?version=1.10.10"
+        async defer></script>
+
+
+    <script>
+        /* A MODO DE EJEMPLO - SOLO PARA MOSTRAR EL FUNCIONAMIENTO */
+
+        const cajaResumen = document.getElementById('cluster-resumen')
+        let gridIda = document.getElementById('grid-ida');
+        let gridVuelta = document.getElementById('grid-vuelta');
+
+        let btnsComprar = document.querySelectorAll('.bqb-btn-comprar');
+        let datosVuelta = document.querySelectorAll('.datos-vuelta');
+
+        gridIda.addEventListener('click', function () {
+            if (!cajaResumen.classList.contains('active')) {
+                cajaResumen.classList.add('active');
+                gridVuelta.scrollIntoView();
+            }
+        });
+        gridVuelta.addEventListener('click', function () {
+
+            if (cajaResumen.classList.contains('active')) {
+                console.log(btnsComprar)
+                for (i = 0; i < btnsComprar.length; ++i) {
+                    if (cajaResumen.classList.contains('active')) {
+                        btnsComprar[i].innerHTML = "Comprar";
+                        btnsComprar[i].disabled = false;
+                        document.querySelector('.tramo-vuelta').innerHTML =
+                            "Montevideo - Buenos Aires / 14-12-2022 / 17:30hs";
+                    }
+                }
+            }
+        });
+    </script>
+
+    <script>
+        let opcionesTransbordo = document.querySelectorAll('.transbordo-opcion');
+        let opcionesTransbordoInfo = document.querySelectorAll('.transbordo-opcion .info');
+        let opcionesTransbordoAbrir = document.querySelectorAll('.transbordo-opcion .expand');
+
+
+        for (var i = 0; i < opcionesTransbordoAbrir.length; i++) {
+            opcionesTransbordoAbrir[i].addEventListener('click', function (event) {
+
+                if (this.closest(".transbordo-opcion").classList.contains('expanded')) {
+                    opcionesTransbordo.forEach((opcionTransbordo) => {
+                        opcionTransbordo.classList.remove('expanded')
+                    });
+                    this.closest(".transbordo-opcion").classList.remove('expanded');
+                } else {
+                    opcionesTransbordo.forEach((opcionTransbordo) => {
+                        opcionTransbordo.classList.remove('expanded')
+                    });
+                    this.closest(".transbordo-opcion").classList.add('expanded');
+                }
+
+            });
+        }
+    </script>
+
+
+</body>
+
+</html>
