@@ -27,8 +27,6 @@
         .transbordo-opciones {
             list-style: none;
             padding: 0;
-            column-count: 2;
-            margin-bottom: 2rem;
         }
 
         .transbordo-opcion {
@@ -37,12 +35,12 @@
             flex-direction: column;
             align-items: flex-start;
             text-align: left;
-
+            margin-bottom: .75rem;
         }
 
         .transbordo-opcion .info {
             display: none;
-            margin-bottom: 1rem;
+            margin-bottom: .25rem;
         }
 
 
@@ -56,7 +54,11 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-
+            width: 27px;
+            height: 20px;
+            position: absolute;
+            top: 0;
+            right: -15px;
         }
 
         .transbordo-opcion.expanded .expand:after {
@@ -85,16 +87,14 @@
             margin-left: .75rem;
         }
 
-        @media (max-width: 576px) {
+        @media (min-width: 576px) {
+            .cont-transbordo .modal-dialog {
+                max-width: 600px;
+                margin: 3rem auto;
+            }
+        }
 
-         
-            .transbordo-opciones {
-            list-style: none;
-            padding: 0;
-            column-count: 1;
-            margin-bottom: 2rem;
-        }
-        }
+        @media (max-width: 576px) {}
     </style>
 </head>
 
@@ -124,287 +124,309 @@
                 </div>
                 <div class="modal-body">
                     <div class="cont-bqb-tras">
-                        <p>Seleccioná la parada en donde deseás abordar
+                        <p style="margin-bottom: 2rem;">Seleccioná la parada en donde deseás abordar
                             al bus de Montevideo a Colonia</p>
 
-                        <ul class="transbordo-opciones">
-                            <li class="transbordo-opcion">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="flexRadioDefault"
-                                        id="flexRadioDefault1" checked>
-                                    <label class="form-check-label" for="flexRadioDefault1">
-                                        Terminal de Buses
-                                    </label>
-                                    <span class="expand"></span>
-                                </div>
-                                <div class="info">
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit
-                                </div>
-                            </li>
-                            <li class="transbordo-opcion">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="flexRadioDefault"
-                                        id="flexRadioDefault2">
-                                    <label class="form-check-label" for="flexRadioDefault2">
-                                        Cibils
-                                    </label>
-                                    <span class="expand"></span>
-                                </div>
-                                <div class="info">
-                                    Lorem ipsum dolor sit amet consectetur
-                                </div>
-                            </li>
-                            <li class="transbordo-opcion">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="flexRadioDefault"
-                                        id="flexRadioDefault3">
-                                    <label class="form-check-label" for="flexRadioDefault3">
-                                        Camino Tomkinson
-                                    </label>
-                                    <span class="expand"></span>
-                                </div>
-                                <div class="info">
-                                    Lorem ipsum dolor sit amet consectetur
-                                </div>
-                            </li>
-                            <li class="transbordo-opcion">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="flexRadioDefault"
-                                        id="flexRadioDefault4">
-                                    <label class="form-check-label" for="flexRadioDefault4">
-                                        Colonia
-                                    </label>
-                                    <span class="expand"></span>
-                                </div>
-                                <div class="info">
-                                    Lorem ipsum dolor sit amet consectetur
-                                </div>
-                            </li>
-                            <li class="transbordo-opcion">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="flexRadioDefault"
-                                        id="flexRadioDefault5">
-                                    <label class="form-check-label" for="flexRadioDefault5">
-                                        Comcar
-                                    </label>
-                                    <span class="expand"></span>
-                                </div>
-                                <div class="info">
-                                    Lorem ipsum dolor sit amet consectetur
-                                </div>
-                            </li>
-                            <li class="transbordo-opcion">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="flexRadioDefault"
-                                        id="flexRadioDefault6">
-                                    <label class="form-check-label" for="flexRadioDefault6">
-                                        Ecilda Paullier
-                                    </label>
-                                    <span class="expand"></span>
-                                </div>
-                                <div class="info">
-                                    Lorem ipsum dolor sit amet consectetur
-                                </div>
-                            </li>
-                            <li class="transbordo-opcion">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="flexRadioDefault"
-                                        id="flexRadioDefault7">
-                                    <label class="form-check-label" for="flexRadioDefault7">
-                                        Estancia Don Joaquin
-                                    </label>
-                                    <span class="expand"></span>
-                                </div>
-                                <div class="info">
-                                    Lorem ipsum dolor sit amet consectetur
-                                </div>
-                            </li>
-                            <li class="transbordo-opcion">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="flexRadioDefault"
-                                        id="flexRadioDefault8">
-                                    <label class="form-check-label" for="flexRadioDefault8">
-                                        Juan Lacaze
-                                    </label>
-                                    <span class="expand"></span>
-                                </div>
-                                <div class="info">
-                                    Lorem ipsum dolor sit amet consectetur
-                                </div>
-                            </li>
-                            <li class="transbordo-opcion">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="flexRadioDefault"
-                                        id="flexRadioDefault9">
-                                    <label class="form-check-label" for="flexRadioDefault9">
-                                        Km 26 Rotonda
-                                    </label>
-                                    <span class="expand"></span>
-                                </div>
-                                <div class="info">
-                                    Lorem ipsum dolor sit amet consectetur
-                                </div>
-                            </li>
-                            <li class="transbordo-opcion">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="flexRadioDefault"
-                                        id="flexRadioDefault10">
-                                    <label class="form-check-label" for="flexRadioDefault10">
-                                        Libertad
-                                    </label>
-                                    <span class="expand"></span>
-                                </div>
-                                <div class="info">
-                                    Lorem ipsum dolor sit amet consectetur
-                                </div>
-                            </li>
-                            <li class="transbordo-opcion">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="flexRadioDefault"
-                                        id="flexRadioDefault11">
-                                    <label class="form-check-label" for="flexRadioDefault11">
-                                        Peaje Santa Lucia
-                                    </label>
-                                    <span class="expand"></span>
-                                </div>
-                                <div class="info">
-                                    Lorem ipsum dolor sit amet consectetur
-                                </div>
-                            </li>
-                            <li class="transbordo-opcion">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="flexRadioDefault"
-                                        id="flexRadioDefault12">
-                                    <label class="form-check-label" for="flexRadioDefault12">
-                                        Penino
-                                    </label>
-                                    <span class="expand"></span>
-                                </div>
-                                <div class="info">
-                                    Lorem ipsum dolor sit amet consectetur
-                                </div>
-                            </li>
-                            <li class="transbordo-opcion">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="flexRadioDefault"
-                                        id="flexRadioDefault13">
-                                    <label class="form-check-label" for="flexRadioDefault13">
-                                        Peraza
-                                    </label>
-                                    <span class="expand"></span>
-                                </div>
-                                <div class="info">
-                                    Lorem ipsum dolor sit amet consectetur
-                                </div>
-                            </li>
-                            <li class="transbordo-opcion">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="flexRadioDefault"
-                                        id="flexRadioDefault14">
-                                    <label class="form-check-label" for="flexRadioDefault14">
-                                        Playa Pascual
-                                    </label>
-                                    <span class="expand"></span>
-                                </div>
-                                <div class="info">
-                                    Lorem ipsum dolor sit amet consectetur
-                                </div>
-                            </li>
-                            <li class="transbordo-opcion">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="flexRadioDefault"
-                                        id="flexRadioDefault15">
-                                    <label class="form-check-label" for="flexRadioDefault15">
-                                        Plaza Cuba
-                                    </label>
-                                    <span class="expand"></span>
-                                </div>
-                                <div class="info">
-                                    Lorem ipsum dolor sit amet consectetur
-                                </div>
-                            </li>
-                            <li class="transbordo-opcion">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="flexRadioDefault"
-                                        id="flexRadioDefault17">
-                                    <label class="form-check-label" for="flexRadioDefault17">
-                                        Radial de Rosario
-                                    </label>
-                                    <span class="expand"></span>
-                                </div>
-                                <div class="info">
-                                    Lorem ipsum dolor sit amet consectetur
-                                </div>
-                            </li>
-                            <li class="transbordo-opcion">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="flexRadioDefault"
-                                        id="flexRadioDefault18">
-                                    <label class="form-check-label" for="flexRadioDefault18">
-                                        Radial de San Jose
-                                    </label>
-                                    <span class="expand"></span>
-                                </div>
-                                <div class="info">
-                                    Lorem ipsum dolor sit amet consectetur
-                                </div>
-                            </li>
-                            <li class="transbordo-opcion">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="flexRadioDefault"
-                                        id="flexRadioDefault19">
-                                    <label class="form-check-label" for="flexRadioDefault19">
-                                        Ruta Vieja Punta Valdez
-                                    </label>
-                                    <span class="expand"></span>
-                                </div>
-                                <div class="info">
-                                    Lorem ipsum dolor sit amet consectetur
-                                </div>
-                            </li>
-                            <li class="transbordo-opcion">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="flexRadioDefault"
-                                        id="flexRadioDefault20">
-                                    <label class="form-check-label" for="flexRadioDefault20">
-                                        Stgo Vazquez
-                                    </label>
-                                    <span class="expand"></span>
-                                </div>
-                                <div class="info">
-                                    Lorem ipsum dolor sit amet consectetur
-                                </div>
-                            </li>
-                            <li class="transbordo-opcion">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="flexRadioDefault"
-                                        id="flexRadioDefault21">
-                                    <label class="form-check-label" for="flexRadioDefault21">
-                                        Km 18
-                                    </label>
-                                    <span class="expand"></span>
-                                </div>
-                                <div class="info">
-                                    Lorem ipsum dolor sit amet consectetur
-                                </div>
-                            </li>
+                        <div class="bqb-row">
+                            <div class="bqb-col-md-6">
+                                <ul class="transbordo-opciones">
+                                    <li class="transbordo-opcion">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                                id="flexRadioDefault1" checked>
+                                            <label class="form-check-label" for="flexRadioDefault1">
+                                                Terminal de Buses
+                                            </label>
+                                            <span class="expand"></span>
+                                        </div>
+                                        <div class="info">
+                                            Bulevar Gral. Artigas 1825, Montevideo
+                                        </div>
+                                    </li>
+                                    <li class="transbordo-opcion">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                                id="flexRadioDefault15">
+                                            <label class="form-check-label" for="flexRadioDefault15">
+                                                Plaza Cuba
+                                            </label>
+                                            <span class="expand"></span>
+                                        </div>
+                                        <div class="info">
+                                            Av. Agraciada 3197, Montevideo
+                                        </div>
+                                    </li>
+                                    <li class="transbordo-opcion">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                                id="flexRadioDefault4">
+                                            <label class="form-check-label" for="flexRadioDefault4">
+                                                Colonia
+                                            </label>
+                                            <span class="expand"></span>
+                                        </div>
+                                        <div class="info">
+                                            Lorem ipsum dolor sit amet consectetur
+                                        </div>
+                                    </li>
+                                    <li class="transbordo-opcion">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                                id="flexRadioDefault2">
+                                            <label class="form-check-label" for="flexRadioDefault2">
+                                                Km. 9,5 - Camino Cibils
+                                            </label>
+                                            <span class="expand"></span>
+                                        </div>
+                                        <div class="info">
+                                            Debajo puente garita frente al diario El pais
+                                        </div>
+                                    </li>
+                                    <li class="transbordo-opcion">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                                id="flexRadioDefault3">
+                                            <label class="form-check-label" for="flexRadioDefault3">
+                                                Km 11,4 - Camino Tomkinson
+                                            </label>
+                                            <span class="expand"></span>
+                                        </div>
+                                        <div class="info">
+                                            Por arriba del puente después rotonda
+                                        </div>
+                                    </li>
+                                    <li class="transbordo-opcion">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                                id="flexRadioDefault21">
+                                            <label class="form-check-label" for="flexRadioDefault21">
+                                                Km 18
+                                            </label>
+                                            <span class="expand"></span>
+                                        </div>
+                                        <div class="info">
+                                            Frente ANCAP
+                                        </div>
+                                    </li>
 
-                            <li class="transbordo-opcion">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="flexRadioDefault"
-                                        id="flexRadioDefault16">
-                                    <label class="form-check-label" for="flexRadioDefault16">
-                                        Tres Cruces
-                                    </label>
-                                    <span class="expand"></span>
-                                </div>
-                                <div class="info">
+                                    <li class="transbordo-opcion">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                                id="flexRadioDefault5">
+                                            <label class="form-check-label" for="flexRadioDefault5">
+                                                Km. 20 - Comcar
+                                            </label>
+                                            <span class="expand"></span>
+                                        </div>
+                                        <div class="info">
+                                            Lorem ipsum dolor sit amet consectetur
+                                        </div>
+                                    </li>
+                                    <li class="transbordo-opcion">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                                id="flexRadioDefault20">
+                                            <label class="form-check-label" for="flexRadioDefault20">
+                                                Km. 23 Stgo. Vazquez
+                                            </label>
+                                            <span class="expand"></span>
+                                        </div>
+                                        <div class="info">
+                                            Antes del puente Sta Lucia K. 23
+                                        </div>
+                                    </li>
+                                    <li class="transbordo-opcion">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                                id="flexRadioDefault11">
+                                            <label class="form-check-label" for="flexRadioDefault11">
+                                                Km. 24 - Peaje Santa Lucia
+                                            </label>
+                                            <span class="expand"></span>
+                                        </div>
+                                        <div class="info">
+                                            Pasando el peaje parada de buses
+                                        </div>
+                                    </li>
 
-                                </div>
-                            </li>
-                        </ul>
+                                    <li class="transbordo-opcion">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                                id="flexRadioDefault9">
+                                            <label class="form-check-label" for="flexRadioDefault9">
+                                                Km. 26 - Rotonda
+                                            </label>
+                                            <span class="expand"></span>
+                                        </div>
+                                        <div class="info">
+                                            Lorem ipsum dolor sit amet consectetur
+                                        </div>
+                                    </li>
 
-                        <button id="search-ticket" class="button-primary">Continuar</button>
+                                    <li class="transbordo-opcion">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                                id="flexRadioDefault12">
+                                            <label class="form-check-label" for="flexRadioDefault12">
+                                                Km. 29 - Penino
+                                            </label>
+                                            <span class="expand"></span>
+                                        </div>
+                                        <div class="info">
+                                            Lorem ipsum dolor sit amet consectetur
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="bqb-col-md-6">
+                                <ul class="transbordo-opciones">
+                                    <li class="transbordo-opcion">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                                id="flexRadioDefault14">
+                                            <label class="form-check-label" for="flexRadioDefault14">
+                                                Km. 32 - Playa Pascual
+                                            </label>
+                                            <span class="expand"></span>
+                                        </div>
+                                        <div class="info">
+                                            Despues de rotonda Frente al Sanatorio
+                                        </div>
+                                    </li>
+
+                                    <li class="transbordo-opcion">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                                id="flexRadioDefault10">
+                                            <label class="form-check-label" for="flexRadioDefault10">
+                                                Km. 51 - Libertad
+                                            </label>
+                                            <span class="expand"></span>
+                                        </div>
+                                        <div class="info">
+                                            Lorem ipsum dolor sit amet consectetur
+                                        </div>
+                                    </li>
+                                    <li class="transbordo-opcion">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                                id="flexRadioDefault19">
+                                            <label class="form-check-label" for="flexRadioDefault19">
+                                                Km. 61 - Punta Valdez
+                                            </label>
+                                            <span class="expand"></span>
+                                        </div>
+                                        <div class="info">
+                                            Lorem ipsum dolor sit amet consectetur
+                                        </div>
+                                    </li>
+                                    <li class="transbordo-opcion">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                                id="flexRadioDefault18">
+                                            <label class="form-check-label" for="flexRadioDefault18">
+                                                Km. 67 - Radial de San Jose
+                                            </label>
+                                            <span class="expand"></span>
+                                        </div>
+                                        <div class="info">
+                                            Lorem ipsum dolor sit amet consectetur
+                                        </div>
+                                    </li>
+
+
+                                    <li class="transbordo-opcion">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                                id="flexRadioDefault13">
+                                            <label class="form-check-label" for="flexRadioDefault13">
+                                                Km. 72 - Rafael Peraza
+                                            </label>
+                                            <span class="expand"></span>
+                                        </div>
+                                        <div class="info">
+                                            Agencia Cot
+                                        </div>
+                                    </li>
+
+                                    <li class="transbordo-opcion">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                                id="flexRadioDefault7">
+                                            <label class="form-check-label" for="flexRadioDefault7">
+                                                Km. 94 - Estancia Don Joaquin
+                                            </label>
+                                            <span class="expand"></span>
+                                        </div>
+                                        <div class="info">
+                                            Lorem ipsum dolor sit amet consectetur
+                                        </div>
+                                    </li>
+                                    <li class="transbordo-opcion">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                                id="flexRadioDefault6">
+                                            <label class="form-check-label" for="flexRadioDefault6">
+                                                Km. 102 - Ecilda Paullier
+                                            </label>
+                                            <span class="expand"></span>
+                                        </div>
+                                        <div class="info">
+                                            Lorem ipsum dolor sit amet consectetur
+                                        </div>
+                                    </li>
+                                    <li class="transbordo-opcion">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                                id="flexRadioDefault16">
+                                            <label class="form-check-label" for="flexRadioDefault16">
+                                                Km. 121 - Colonia Valdense
+                                            </label>
+                                            <span class="expand"></span>
+                                        </div>
+                                        <div class="info">
+                                            En American Bar
+                                        </div>
+                                    </li>
+                                    <li class="transbordo-opcion">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                                id="flexRadioDefault17">
+                                            <label class="form-check-label" for="flexRadioDefault17">
+                                                Km. 130 - Radial de Rosario
+                                            </label>
+                                            <span class="expand"></span>
+                                        </div>
+                                        <div class="info">
+                                            Lorem ipsum dolor sit amet consectetur
+                                        </div>
+                                    </li>
+
+
+
+
+
+
+                                    <li class="transbordo-opcion">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                                id="flexRadioDefault8">
+                                            <label class="form-check-label" for="flexRadioDefault8">
+                                                Km. 139 - Juan Lacaze
+                                            </label>
+                                            <span class="expand"></span>
+                                        </div>
+                                        <div class="info">
+                                            Lorem ipsum dolor sit amet consectetur
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+
+                        <button id="search-ticket" class="button-primary" style="margin-top:
+                        2rem;">Continuar</button>
                     </div>
                 </div>
             </div>
