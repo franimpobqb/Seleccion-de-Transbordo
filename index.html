@@ -70,12 +70,11 @@
 
                         <p>Seleccioná la parada en donde deseás abordar
                             al bus de Montevideo a Colonia</p>
-                        <select class="bqb-select" id="sel-stops" style="margin-bottom: 3rem;">
-                            <option value=""> Terminal de Buses</option>
+                        <select class="bqb-select" id="sel-stops" style="margin-bottom: 1.5rem;">
+                            <option value="">Terminal de Buses Tres Cruces</option>
                             <option value="244925">Plaza Cuba</option>
-                            <option value="244926">Colonia</option>
                             <option value="244942">Km. 9,5 - Camino Cibils</option>
-                            <option value="244939">Km 11.4 - Camino Tomkinson</option>
+                            <option value="244939">Km. 11,4 - Camino Tomkinson</option>
                             <option value="244927">Km. 18</option>
                             <option value="244938">Km. 20 - Comcar</option>
                             <option value="244937">Km. 23 - Stgo. Vazquez</option>
@@ -84,6 +83,7 @@
                             <option value="244933">Km. 29 - Penino</option>
                             <option value="244929">Km. 32 - Playa Pascual</option>
                             <option value="244931">Km. 51 - Libertad</option>
+                            <option value="244926">Km. 54</option>
                             <option value="244936">Km. 61 - Punta Valdez</option>
                             <option value="244932">Km. 67 - Radial de San Jose</option>
                             <option value="244924">Km. 72 - Rafael Peraza</option>
@@ -93,7 +93,8 @@
                             <option value="244934">Km. 130 - Radial de Rosario</option>
                             <option value="244943">Km. 139 - Juan Lacaze</option>
                         </select>
-
+                        <p style="font-size: 1.2rem; margin-bottom: 1.5rem;">Podrá modificar su elección sin cargo luego
+                            de haber realizado su compra comunicándose con Atención al Cliente.</p>
 
                         <div class="w-100 d-flex align-items-center justify-content-center"><button id="search-ticket"
                                 class="button-primary">Continuar</button></div>
@@ -108,70 +109,11 @@
 
 
 
-
-
-
     <script
         src="https://www.buquebus.com/Portal/resources/Bqb/js/bootstrap.bundle.min.js;jsessionid=EDC970C259ACD114353AE8BCF5714AA4?version=1.10.10"
         async defer></script>
 
 
-    <script>
-        /* A MODO DE EJEMPLO - SOLO PARA MOSTRAR EL FUNCIONAMIENTO */
-
-        const cajaResumen = document.getElementById('cluster-resumen')
-        let gridIda = document.getElementById('grid-ida');
-        let gridVuelta = document.getElementById('grid-vuelta');
-
-        let btnsComprar = document.querySelectorAll('.bqb-btn-comprar');
-        let datosVuelta = document.querySelectorAll('.datos-vuelta');
-
-        gridIda.addEventListener('click', function () {
-            if (!cajaResumen.classList.contains('active')) {
-                cajaResumen.classList.add('active');
-                gridVuelta.scrollIntoView();
-            }
-        });
-        gridVuelta.addEventListener('click', function () {
-
-            if (cajaResumen.classList.contains('active')) {
-                console.log(btnsComprar)
-                for (i = 0; i < btnsComprar.length; ++i) {
-                    if (cajaResumen.classList.contains('active')) {
-                        btnsComprar[i].innerHTML = "Comprar";
-                        btnsComprar[i].disabled = false;
-                        document.querySelector('.tramo-vuelta').innerHTML =
-                            "Montevideo - Buenos Aires / 14-12-2022 / 17:30hs";
-                    }
-                }
-            }
-        });
-    </script>
-
-    <script>
-        let opcionesTransbordo = document.querySelectorAll('.transbordo-opcion');
-        let opcionesTransbordoInfo = document.querySelectorAll('.transbordo-opcion .info');
-        let opcionesTransbordoAbrir = document.querySelectorAll('.transbordo-opcion .expand');
-
-
-        for (var i = 0; i < opcionesTransbordoAbrir.length; i++) {
-            opcionesTransbordoAbrir[i].addEventListener('click', function (event) {
-
-                if (this.closest(".transbordo-opcion").classList.contains('expanded')) {
-                    opcionesTransbordo.forEach((opcionTransbordo) => {
-                        opcionTransbordo.classList.remove('expanded')
-                    });
-                    this.closest(".transbordo-opcion").classList.remove('expanded');
-                } else {
-                    opcionesTransbordo.forEach((opcionTransbordo) => {
-                        opcionTransbordo.classList.remove('expanded')
-                    });
-                    this.closest(".transbordo-opcion").classList.add('expanded');
-                }
-
-            });
-        }
-    </script>
 
 
 </body>
